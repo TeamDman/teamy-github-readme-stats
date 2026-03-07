@@ -9,6 +9,7 @@ fn main() {
 fn add_exe_resources() {
     println!("cargo:rerun-if-changed=resources");
 
+    #[cfg(windows)]
     embed_resource::compile("resources/app.rc", embed_resource::NONE)
         .manifest_required()
         .expect("failed to embed resources");

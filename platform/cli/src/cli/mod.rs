@@ -5,6 +5,7 @@ pub mod fetch;
 pub mod generate;
 pub mod global_args;
 pub mod home;
+pub mod serve;
 
 use crate::cli::cache::CacheArgs;
 use crate::cli::docs::DocsArgs;
@@ -12,6 +13,7 @@ use crate::cli::fetch::FetchArgs;
 use crate::cli::generate::GenerateArgs;
 use crate::cli::global_args::GlobalArgs;
 use crate::cli::home::HomeArgs;
+use crate::cli::serve::ServeArgs;
 use arbitrary::Arbitrary;
 use eyre::Context;
 use facet::Facet;
@@ -70,6 +72,8 @@ pub enum Command {
     Generate(GenerateArgs),
     /// Home-related commands.
     Home(HomeArgs),
+    /// Serve stats cards over HTTP.
+    Serve(ServeArgs),
 }
 
 impl Command {
@@ -83,6 +87,7 @@ impl Command {
             Command::Fetch(args) => args.invoke().await,
             Command::Generate(args) => args.invoke().await,
             Command::Home(args) => args.invoke().await,
+            Command::Serve(args) => args.invoke().await,
         }
     }
 }

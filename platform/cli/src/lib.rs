@@ -5,6 +5,7 @@ pub mod cache_store;
 pub mod card_render;
 pub mod cli;
 pub mod github_api;
+pub mod github_token;
 pub mod logging_init;
 pub mod models;
 pub mod paths;

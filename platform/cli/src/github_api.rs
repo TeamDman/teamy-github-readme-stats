@@ -15,16 +15,36 @@ pub struct GitHubClient {
 }
 
 impl GitHubClient {
+    fn build_http_client() -> Result<reqwest::Client> {
+        reqwest::Client::builder()
+            .user_agent(USER_AGENT)
+            .build()
+            .wrap_err("Failed to build GitHub HTTP client")
+    }
+
     /// # Errors
     ///
     /// This function will return an error if no GitHub token is available or the HTTP client cannot be constructed.
     pub fn new(cli_token: Option<String>) -> Result<Self> {
-        let token = resolve_github_token(cli_token)?;
-        let http = reqwest::Client::builder()
-            .user_agent(USER_AGENT)
-            .build()
-            .wrap_err("Failed to build GitHub HTTP client")?;
+        let token = resolve_github_token_from_env(cli_token)?;
+        let http = Self::build_http_client()?;
         Ok(Self { http, token })
+    }
+
+    /// # Errors
+    ///
+    /// This function will return an error if the token is empty or the HTTP client cannot be constructed.
+    pub fn from_token(token: &str) -> Result<Self> {
+        let trimmed = token.trim();
+        if trimmed.is_empty() {
+            bail!("GitHub token cannot be empty");
+        }
+
+        let http = Self::build_http_client()?;
+        Ok(Self {
+            http,
+            token: trimmed.to_owned(),
+        })
     }
 
     /// # Errors
@@ -170,7 +190,7 @@ impl GitHubClient {
     }
 }
 
-fn resolve_github_token(cli_token: Option<String>) -> Result<String> {
+pub(crate) fn resolve_github_token_from_env(cli_token: Option<String>) -> Result<String> {
     if let Some(token) = cli_token {
         let trimmed = token.trim();
         if !trimmed.is_empty() {
