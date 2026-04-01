@@ -42,6 +42,20 @@ HTML:
 />
 ```
 
+## Theme previews
+
+### Touhou (default)
+
+[![touhou theme preview](https://github-readme-stats.teamdman.ca/stats.svg?username=TeamDman&theme=touhou)](https://github-readme-stats.teamdman.ca/stats.svg?username=TeamDman&theme=touhou)
+
+### Dark
+
+[![dark theme preview](https://github-readme-stats.teamdman.ca/stats.svg?username=TeamDman&theme=dark)](https://github-readme-stats.teamdman.ca/stats.svg?username=TeamDman&theme=dark)
+
+### Light
+
+[![light theme preview](https://github-readme-stats.teamdman.ca/stats.svg?username=TeamDman&theme=light)](https://github-readme-stats.teamdman.ca/stats.svg?username=TeamDman&theme=light)
+
 ## Supported query parameters
 
 The hosted endpoint accepts these query parameters:
