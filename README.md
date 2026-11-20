@@ -1,5 +1,7 @@
 # teamy-github-readme-stats
 
+[![TeamDman's github stats](https://github-readme-stats.teamdman.ca/stats.svg?username=TeamDman&theme=touhou)](https://github.com/TeamDman/teamy-github-readme-stats.git)
+
 Touhou-styled animated GitHub stats cards, implemented as a Rust CLI and deployed as a hosted SVG service.
 
 The project has two main parts:
@@ -39,6 +41,20 @@ HTML:
 	src="https://github-readme-stats.teamdman.ca/stats.svg?username=TeamDman&theme=touhou"
 />
 ```
+
+## Theme previews
+
+### Touhou (default)
+
+[![touhou theme preview](https://github-readme-stats.teamdman.ca/stats.svg?username=TeamDman&theme=touhou)](https://github-readme-stats.teamdman.ca/stats.svg?username=TeamDman&theme=touhou)
+
+### Dark
+
+[![dark theme preview](https://github-readme-stats.teamdman.ca/stats.svg?username=TeamDman&theme=dark)](https://github-readme-stats.teamdman.ca/stats.svg?username=TeamDman&theme=dark)
+
+### Light
+
+[![light theme preview](https://github-readme-stats.teamdman.ca/stats.svg?username=TeamDman&theme=light)](https://github-readme-stats.teamdman.ca/stats.svg?username=TeamDman&theme=light)
 
 ## Supported query parameters
 
@@ -142,3 +158,4 @@ Terraform lives in [platform/iac](platform/iac). See [platform/iac/README.md](pl
 ## License
 
 This repository is licensed under the MPL-2.0. See [LICENSE](LICENSE).
+
